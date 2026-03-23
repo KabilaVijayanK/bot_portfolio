@@ -1,0 +1,680 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.bot-landing-container * {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #27203d;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1e1833;
+  border-radius: 8px;
+  border: 2px solid #27203d;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1e1833 #27203d; 
+}
+/* ==============================
+   GLASS NAVBAR EFFECT
+============================== */
+
+.header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:9999;
+
+  background:rgba(15,18,35,0.55);          /* Glass base */
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* Navbar text */
+.navbar .hov{
+  color:#eee !important;
+  position:relative;
+  padding:6px 4px;
+}
+
+/* Hover neon underline */
+.navbar .hov::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+
+  background:linear-gradient(90deg,#6a6aff,#ff66cc,#66eaff);
+  transition:.35s ease;
+}
+
+.navbar .hov:hover::after{
+  width:100%;
+}
+
+/* Logo glow */
+.logo{
+  color:white;
+  font-weight:700;
+  text-shadow:0 0 12px rgba(120,140,255,.6);
+}
+
+/* Sticky shrink effect */
+.header{
+  transition:.35s ease;
+}
+
+body:not(.dark-mode) .header{
+  background:rgba(15,18,35,0.45);
+}
+
+/* Icons glass rounding */
+#menu-icon,
+#darkMode-icon{
+  color:#fff;
+  padding:6px;
+  border-radius:50%;
+  backdrop-filter:blur(6px);
+  transition:.3s;
+}
+
+#menu-icon:hover,
+#darkMode-icon:hover{
+  background:rgba(255,255,255,0.15);
+}
+/* ==============================
+        SERVICES ALIGNMENT
+================================ */
+
+.services-glass{
+   max-width:1300px;
+   margin:0 auto;
+   padding:80px 24px;
+   position:relative;
+}
+
+.services-title{
+  text-align:center;
+  font-size:42px;
+  margin-bottom:50px;
+}
+
+.services-title span{
+  background:linear-gradient(135deg,#667eea,#f093fb);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  gap:30px;
+  justify-content:center;
+}
+
+/* ✅ Last row center magic */
+.services-grid::after{
+  content:"";
+  grid-column: span 1;
+}
+
+@media(max-width:1200px){
+  .services-grid{
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+
+@media(max-width:900px){
+  .services-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .services-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* ---------------- Cards ---------------- */
+
+.glass-service-card{
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(18px);
+  border-radius:20px;
+  padding:34px 28px;
+  border:1px solid rgba(255,255,255,0.14);
+  text-align:center;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:340px;
+
+  transition:.35s;
+}
+
+.glass-service-card:hover{
+  transform:translateY(-10px);
+  background: rgba(255,255,255,0.1);
+  box-shadow:0 18px 40px rgba(102,126,234,0.35);
+}
+
+.glass-icon{
+  width:72px;
+  height:72px;
+  margin:auto;
+  border-radius:50%;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:18px;
+}
+
+.glass-icon i{
+  font-size:34px;
+  color:#fff;
+}
+
+/* ---------------- Text ---------------- */
+
+.glass-service-card h3{
+  font-size:19px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.glass-service-card p{
+  opacity:.8;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:auto;
+}
+
+/* ---------------- Button ---------------- */
+
+.glass-btn{
+  margin-top:22px;
+  padding:14px 40px;
+  width:fit-content;
+  align-self:center;
+
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:1px;
+
+  border-radius:50px;
+  color:#fff;
+  background:linear-gradient(135deg,#667eea,#f093fb);
+  transition:.3s ease;
+}
+
+.glass-btn:hover{
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 12px 30px rgba(240,147,251,.45);
+}
+/* ✅ Center last row (3 cards) properly */
+
+.center-last-row{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  gap:30px;
+  justify-content:center;
+}
+
+/* Force last row with only 3 cards to center */
+.center-last-row > :nth-last-child(3){
+  grid-column: 1;
+}
+
+/* Mobile responsive */
+@media(max-width:1200px){
+  .center-last-row{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+@media(max-width:760px){
+  .center-last-row{
+    grid-template-columns:1fr;
+  }
+}
+/* ================================
+     SERVICES GLASS FINAL CSS
+================================ */
+
+/* Section Area */
+.services-glass{
+  padding:80px 20px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* Title */
+.services-title{
+  text-align:center;
+  font-size:3.5rem;
+  color:white;
+  margin-bottom:60px;
+}
+
+.services-title span{
+  background:linear-gradient(135deg,#9d8cff,#ff7fd7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* Grid */
+.services-container{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:32px;
+
+  /* FOR CENTER FIX */
+  justify-content:center;
+}
+
+/* Mobile */
+@media(max-width:900px){
+  .services-container{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .services-container{
+    grid-template-columns:1fr;
+  }
+}
+
+/* Glass Card */
+.glass-service-card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:22px;
+
+  padding:34px 28px;
+  min-height:300px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+
+  text-align:center;
+
+  transition:0.4s ease;
+}
+
+.glass-service-card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 20px 40px rgba(149,122,255,0.45);
+}
+
+/* Icon */
+.glass-icon{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#9d8cff,#ff7fd7);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:16px;
+}
+
+.glass-icon i{
+  font-size:36px;
+  color:white;
+}
+
+/* Card Text */
+.glass-service-card h3{
+  font-size:20px;
+  margin:14px 0 10px;
+  color:white;
+}
+
+.glass-service-card p{
+  font-size:15px;
+  line-height:1.6;
+  opacity:.85;
+}
+
+/* BIG EXPLORE BUTTON */
+.glass-btn{
+  margin-top:18px;
+
+  display:inline-block;
+  padding:14px 48px;
+  border-radius:30px;
+
+  font-size:16px;
+  font-weight:600;
+
+  background:linear-gradient(135deg,#9d8cff,#ff7fd7);
+  color:white;
+
+  text-decoration:none;
+  transition:.3s;
+}
+
+.glass-btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 10px 30px rgba(150,120,255,.6);
+}
+
+/* ✅ Make ONLY My Services heading bold */
+.services-title{
+  margin-top: 10px;
+  font-weight: 900 !important;
+  justify-items: center;
+}
+/* =============================
+ CONTACT LAYOUT FINAL FIX ✅
+============================= */
+
+.contact{
+  padding:80px 20px;
+}
+
+/* ✅ FORM CENTER & BIG SIZE */
+.contact .space-y-8{
+  max-width:620px !important;
+  width:100% !important;
+  margin:0 auto !important;
+
+  background:rgba(255,255,255,0.08) !important;
+  backdrop-filter:blur(16px);
+
+  border-radius:28px;
+  padding:36px !important;
+  border:1px solid rgba(255,255,255,0.18);
+}
+
+/* ✅ INPUT BIG */
+.contact input,
+.contact textarea{
+  width:100% !important;
+  min-height:56px !important;
+  padding:14px 18px !important;
+
+  font-size:18px !important;
+  border-radius:12px !important;
+}
+
+.contact textarea{
+  min-height:160px !important;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder{
+  font-size:16px;
+  color:#aaa;
+}
+
+/* ✅ SEND BUTTON */
+.contact button.btn{
+  width:100% !important;
+  height:56px;
+
+  font-size:18px !important;
+  font-weight:700;
+}
+
+/* ==============================
+ CTA BUTTON BELOW FORM (INSIDE)
+============================== */
+
+.contact-cta-row{
+  max-width:620px;
+  margin:20px auto 0;
+
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.contact-cta-row a{
+  height:52px;
+
+  font-size:15px;
+  font-weight:600;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:14px;
+}
+
+/* ✅ MOBILE STACK */
+@media(max-width:880px){
+  .contact-cta-row{
+    grid-template-columns:1fr;
+  }
+}
+/* ✅ FIX BUTTON TEXT DISAPPEAR ISSUE */
+.btn:hover,
+.glass-btn:hover,
+.contact-cta-row a:hover,
+.contact button.btn:hover{
+  color: #fff !important;               /* Text always visible */
+  filter: brightness(1.1) !important;  /* Remove wash effect */
+  text-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+.btn,
+.glass-btn,
+.contact-cta-row a,
+.contact button.btn{
+  color:#fff !important;
+  backface-visibility:hidden;
+}
+/* ✅ FIX PHONE INPUT CLIPPING ISSUE */
+.react-tel-input .form-control{
+  padding-left:30px !important;
+}
+
+.react-tel-input{
+  overflow: visible !important;
+}
+/* ===============================
+   FIX HOME HERO FULL VIEW HEIGHT
+================================ */
+
+.hero-home{
+  min-height:100vh;               /* 👈 Full screen height */
+  display:flex;
+  align-items:center;            /* vertical center */
+  justify-content:center;
+  padding-top:100px;              /* navbar height clearance */
+  padding-bottom:40px;
+}
+
+/* Ensure content doesn't overflow */
+.hero-home > *{
+  max-width:1400px;
+  width:100%;
+}
+
+/* Mobile smooth fit */
+@media(max-width:768px){
+  .hero-home{
+     padding-top:120px;
+     align-items:flex-start;
+  }
+}
+.home {
+  min-height: 100vh;
+  padding-top: 90px; /* navbar height compensate */
+  box-sizing: border-box;
+}
+.home-img {
+  align-self: center;
+  margin-top: -10px;   /* mela lift aagum */
+}
+
+.home-img img{
+  transform: translateY(-30px);
+}
+/* ===============================
+   Global Reset
+================================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body{
+  background: #08051a;
+  color:#fff;
+}
+
+/* ===============================
+   Main Page Wrapper
+================================*/
+.strategy-wrapper{
+  min-height:100vh;
+  width:100%;
+  padding:80px 6%;
+}
+
+/* ===============================
+   HERO
+================================*/
+.strategy-hero{
+  text-align:center;
+  margin-bottom:80px;
+}
+
+.strategy-hero h1{
+  font-size:64px;
+  font-weight:800;
+  line-height:1.2;
+}
+
+.strategy-hero h1 span{
+  color:#a970ff;
+}
+
+.strategy-hero p{
+  margin-top:24px;
+  font-size:22px;
+  max-width:900px;
+  margin-inline:auto;
+  line-height:1.8;
+  color:#e7e7e7;
+}
+
+.cta-btn{
+  margin-top:32px;
+  padding:16px 40px;
+  font-size:20px;
+  font-weight:700;
+  border-radius:999px;
+  color:white;
+  background:linear-gradient(90deg,#ff7eb3,#8a2be2);
+  border:none;
+  cursor:pointer;
+  transition:.3s ease;
+}
+
+.cta-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 15px #8a2be2;
+}
+
+/* ===============================
+   SECTION TITLE
+================================*/
+.section-title{
+  text-align:center;
+  font-size:48px;
+  margin-bottom:50px;
+}
+
+/* ===============================
+   GRID
+================================*/
+.card-grid{
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap:40px;
+}
+
+/* ===============================
+   CARDS
+================================*/
+.strategy-card{
+  background:rgba(255,255,255,0.08);
+  border-radius:24px;
+  padding:40px 30px;
+  text-align:center;
+  backdrop-filter: blur(8px);
+  transition:.3s ease;
+}
+
+.strategy-card:hover{
+  transform:translateY(-10px) scale(1.03);
+  background:rgba(255,255,255,0.14);
+}
+
+.strategy-card{
+  font-size:48px;
+}
+
+.strategy-card h3{
+  margin-top:18px;
+  font-size:26px;
+}
+
+.strategy-card p{
+  margin-top:12px;
+  font-size:18px;
+  color:#e3e3e3;
+  line-height:1.6;
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================*/
+@media(max-width:768px){
+  
+  .strategy-hero h1{
+    font-size:44px;
+  }
+
+  .strategy-hero p{
+    font-size:18px;
+  }
+
+  .section-title{
+    font-size:36px;
+  }
+
+}

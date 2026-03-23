@@ -1,0 +1,162 @@
+/* ==============================
+      ABOUT - CONSULTATION STYLE
+============================== */
+
+.about-page {
+  min-height:100vh;
+  padding:100px 20px 60px;
+  background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+  color:#fff;
+}
+
+/* HERO */
+.about-hero{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.about-title{
+  font-size:clamp(38px,5vw,60px);
+  font-weight:800;
+}
+
+.about-tagline{
+  font-size:18px;
+  opacity:.85;
+  margin-top:6px;
+}
+
+.gradient-text{
+  background:linear-gradient(135deg,#6a6aff,#ff66cc,#66eaff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* LAYOUT */
+.about-wrapper{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:40px;
+  align-items:center;
+}
+
+/* IMAGE */
+.about-image img{
+  width:100%;
+  border-radius:18px;
+  object-fit:cover;
+}
+
+/* GLASS CARD */
+.glass-card{
+  background: rgba(18,20,36,0.7);
+  backdrop-filter: blur(16px);
+  border-radius:24px;
+  padding:32px;
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 12px 45px rgba(0,0,0,.6);
+}
+
+/* CONTENT */
+.about-content h3{
+  font-size:24px;
+  line-height:1.5;
+  margin-bottom:18px;
+}
+
+.about-content p{
+  font-size:16px;
+  line-height:1.8;
+  opacity:.85;
+  margin-bottom:12px;
+}
+
+/* BUTTON */
+.about-btn{
+  display:inline-block;
+  margin-top:16px;
+  background:linear-gradient(135deg,#6a6aff,#ff66cc);
+  color:white;
+  padding:14px 34px;
+  border-radius:50px;
+  font-weight:600;
+  transition:.3s;
+}
+
+.about-btn:hover{
+  box-shadow:0 10px 30px rgba(115,130,255,.5);
+  transform:translateY(-3px);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .about-wrapper{
+    grid-template-columns:1fr;
+  }
+}
+/* ======================
+   ANIMATED LOGO BORDER
+======================*/
+
+.animated-border {
+  position: relative;
+  padding: 10px;
+  border-radius: 28px;
+  background: linear-gradient(
+    120deg,
+    #667eea,
+    #764ba2,
+    #f093fb,
+    #4facfe,
+    #667eea
+  );
+  background-size: 400%;
+  animation: borderGlow 6s linear infinite;
+  box-shadow: 0 0 30px rgba(102,126,234,0.5);
+}
+
+/* Logo box inner glow */
+.animated-border::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #0b0b12;
+  border-radius: 24px;
+  z-index: 0;
+}
+
+/* Actual Logo */
+.logo-animate {
+  position: relative;
+  z-index: 1;
+  width: 260px;
+  height: auto;
+  border-radius: 20px;
+
+ 
+}
+
+/* Border gradient animation */
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Logo floating animation */
+@keyframes floatLogo {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Soft pulsing glow */
+@keyframes pulseGlow {
+  0%,100% {
+    filter: drop-shadow(0 0 6px #764ba2);
+  }
+  50% {
+    filter: drop-shadow(0 0 16px #f093fb);
+  }
+}
