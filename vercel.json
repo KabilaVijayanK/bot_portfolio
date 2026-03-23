@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd Evangelin-Gladin-main-navaf_dev_pf && npm run build",
+  "outputDirectory": "Evangelin-Gladin-main-navaf_dev_pf/build",
+  "framework": "create-react-app",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
